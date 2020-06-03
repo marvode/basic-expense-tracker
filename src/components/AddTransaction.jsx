@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState.js";
+import { addItemToTransactions } from "../AppStorage.js";
 
 const AddTransaction = () => {
 	const [text, setText] = useState("");
@@ -18,6 +19,8 @@ const AddTransaction = () => {
 		};
 
 		addTransaction(newTransaction);
+
+		addItemToTransactions(newTransaction);
 
 		setText("");
 		setAmount("");

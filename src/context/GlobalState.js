@@ -1,14 +1,10 @@
 import React, { useReducer, createContext } from "react";
 
 import AppReducer from "./AppReducer";
+import { initializeStorage } from "../AppStorage";
 
 const initialState = {
-	transactions: [
-		{ id: 1, text: "Flower", amount: -20 },
-		{ id: 2, text: "Salary", amount: 300 },
-		{ id: 3, text: "Book", amount: -10 },
-		{ id: 4, text: "Camera", amount: 150 },
-	],
+	transactions: initializeStorage(),
 };
 
 export const GlobalContext = createContext(initialState);
@@ -36,6 +32,13 @@ export const GlobalProvider = ({ children }) => {
 		});
 	};
 
+	const addTransactions = (transactions) => {
+		dispatch({
+			type: "ADD_TRANSACTIONS",
+			payload: transactions,
+		});
+	};
+
 	return (
 		<GlobalContext.Provider
 			value={{
@@ -43,6 +46,7 @@ export const GlobalProvider = ({ children }) => {
 				deleteTransaction,
 				addTransaction,
 				clearTransactions,
+				addTransactions,
 			}}
 		>
 			{children}

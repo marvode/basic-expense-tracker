@@ -17,6 +17,11 @@ export default (state, action) => {
 				...state,
 				transactions: [],
 			};
+		case "ADD_TRANSACTIONS":
+			return {
+				...state,
+				transactions: action.payload,
+			};
 		default:
 			return state;
 	}

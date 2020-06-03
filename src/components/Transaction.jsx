@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState.js";
+import { deleteItemFromTransactions } from "../AppStorage.js";
 
 const Transaction = ({ id, text, amount }) => {
 	const { deleteTransaction } = useContext(GlobalContext);
@@ -17,7 +18,10 @@ const Transaction = ({ id, text, amount }) => {
 					<span className="capitalize">
 						<button
 							className="px-2 mr-2 del_button"
-							onClick={() => deleteTransaction(id)}
+							onClick={() => {
+								deleteTransaction(id);
+								deleteItemFromTransactions(id);
+							}}
 						>
 							&times;
 						</button>

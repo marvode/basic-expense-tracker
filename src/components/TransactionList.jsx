@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Transaction from "./Transaction.jsx";
 
 import { GlobalContext } from "../context/GlobalState.js";
+import { clearAllTransactions } from "../AppStorage.js";
 
 const TransactionList = () => {
 	const { transactions, clearTransactions } = useContext(GlobalContext);
@@ -14,7 +15,10 @@ const TransactionList = () => {
 				{transactions.length ? (
 					<button
 						className=" px-2 py-1 bg-red-600 rounded"
-						onClick={() => clearTransactions()}
+						onClick={() => {
+							clearTransactions();
+							clearAllTransactions();
+						}}
 					>
 						Clear
 					</button>
