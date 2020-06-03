@@ -10,7 +10,9 @@ const Balance = () => {
 	return (
 		<div className="mb-5">
 			<h3 className="uppercase">Your Balance</h3>
-			<h2 className="text-5xl leading-none tracking-wide">{`${sign}$ ${total}`}</h2>
+			<h2 className="text-5xl leading-none tracking-wide">{`${sign}$ ${Math.abs(
+				total
+			)}`}</h2>
 		</div>
 	);
 };
