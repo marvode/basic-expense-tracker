@@ -8,20 +8,24 @@ import Balance from "./components/Balance";
 import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
 
+import { GlobalProvider } from "./context/GlobalState";
+
 function App() {
 	return (
-		<div
-			className="flex content-center text-lg"
-			style={{ height: "100vh" }}
-		>
-			<div className="max-w-md mx-auto max-h-64 my-auto px-5">
-				<Header />
-				<Balance />
-				<IncomeExpenses />
-				<TransactionList />
-				<AddTransaction />
+		<GlobalProvider>
+			<div
+				className="flex content-center text-lg text-gray-800"
+				style={{ height: "100vh" }}
+			>
+				<div className="max-w-md mx-auto my-auto pb-5 px-5">
+					<Header />
+					<Balance />
+					<IncomeExpenses />
+					<TransactionList />
+					<AddTransaction />
+				</div>
 			</div>
-		</div>
+		</GlobalProvider>
 	);
 }
 
