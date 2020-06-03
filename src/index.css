@@ -12,5 +12,6 @@ code {
 		monospace;
 }
 
-.transaction-item:hover {
+.transaction-item:hover .del_button {
+	background-color: red;
 }

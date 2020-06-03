@@ -17,7 +17,10 @@ function App() {
 				className="flex content-center text-lg text-gray-800"
 				style={{ height: "100vh" }}
 			>
-				<div className="max-w-md mx-auto my-auto pb-5 px-5">
+				<div
+					className="max-w-md mx-auto my-auto pb-5 px-5 shadow-md rounded"
+					style={{ backgroundColor: "#f7f7f7" }}
+				>
 					<Header />
 					<Balance />
 					<IncomeExpenses />
